@@ -7,7 +7,7 @@ description = "Chobs (Changes Observer) is a tool that automatically restarting 
 exclude=[".DS_Store"]
 repository = "https://github.com/arg2u/chobs"
 documentation="https://docs.rs/chobs"
-keywords = ["cli", "restart", "rerun","terminal","autoload","development", "monitor","reload"]
+keywords = ["restart","autoload","development", "monitor","reload"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
