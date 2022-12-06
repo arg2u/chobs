@@ -45,6 +45,9 @@ impl Config {
     pub fn new(folder_path: Option<PathBuf>) -> Self {
         let mut config: Config;
         let path = Path::new("chobs.json");
+        if folder_path.is_some() {
+            std::env::set_current_dir(folder_path.as_ref().unwrap()).unwrap();
+        }
         if !path.exists() {
             config = Config::default();
         } else {
