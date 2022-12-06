@@ -17,7 +17,7 @@ use std::path::PathBuf;
 ///     watch(Some(PathBuf::from(".")), "cargo run".to_string());
 /// }
 /// ```
-pub fn watch(root_folder: Option<PathBuf>, exec: String) {
+pub fn watch(root_folder: Option<PathBuf>, exec: Option<String>) {
     let mut watcher = Watcher::new(root_folder, exec);
     watcher.watch();
 }

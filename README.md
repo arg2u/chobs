@@ -58,11 +58,11 @@ OPTIONS:
 ## **Examples**
 
 ```bash
-chobs --exec "cargo run -- -f -b" -r .
+chobs watch --exec "cargo run -- -f -b" -r .
 ```
 
 ```bash
-chobs --exec "node index.js" -r .
+chobs watch --exec "node index.js" -r .
 ```
 
 You can use it with any exec.
@@ -70,7 +70,7 @@ You can use it with any exec.
 If your exec is very long, you can create run.sh bash or shell script for your process.
 
 ```bash
-chobs --exec ./run.sh
+chobs watch --exec ./run.sh
 ```
 
 ## **Automatic re-running**
@@ -84,7 +84,8 @@ Chobs watches for changes in the files and folders in your root directory and re
   "verbose": true,
   "ignore": ["target", ".git"],
   "delay": 1000,
-  "root_folder": "../my_folder"
+  "root_folder": "../my_folder",
+  "exec": "cargo run -- -e -f -g -c"
 }
 ```
 
@@ -92,6 +93,7 @@ Chobs watches for changes in the files and folders in your root directory and re
 **ignore** - list of directories and files you want to ignore (default - ["target",".git"])<br>
 **delay** - how often do you need to check for updates in ms (default - 1000 ms)<br>
 **root_folder** - folder to watch (default - ".")<br>
+**exec** - command to execute. You should provide either in the CLI's -e flag or in config file
 
 ## **Sponsor**
 

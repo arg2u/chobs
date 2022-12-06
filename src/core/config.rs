@@ -17,6 +17,8 @@ pub struct Config {
     pub delay: Option<u64>,
     /// Root folder to observe
     pub root_folder: Option<PathBuf>,
+    /// String representation of command to exec
+    pub exec: Option<String>,
 }
 
 impl Default for Config {
@@ -27,6 +29,7 @@ impl Default for Config {
             ignore: Some(vec!["target".to_string(), ".git".to_string()]),
             delay: Some(1000),
             root_folder: Some(PathBuf::from(".")),
+            exec: None,
         }
     }
 }
@@ -42,7 +45,7 @@ impl Config {
     }
 
     /// Creates config instance
-    pub fn new(folder_path: Option<PathBuf>) -> Self {
+    pub fn new(folder_path: Option<PathBuf>, exec: Option<String>) -> Self {
         let mut config: Config;
         let path = Path::new("chobs.json");
         if folder_path.is_some() {
@@ -56,6 +59,12 @@ impl Config {
         }
         if folder_path.is_some() {
             config.root_folder = folder_path;
+        }
+        if exec.is_some() {
+            config.exec = exec;
+        }
+        if config.exec.is_none() {
+            panic!("You were't provided a command to execute. You could provide it in the CLI's -e flag or in the exec field fo the chobs.json");
         }
         config
     }

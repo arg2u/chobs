@@ -30,9 +30,11 @@ impl Clone for Watcher {
 }
 
 impl Watcher {
-    pub fn new(folder_path: Option<PathBuf>, exec: String) -> Self {
-        let config = Arc::new(Config::new(folder_path));
-        let command = Arc::new(Mutex::new(Exec::new(exec)));
+    pub fn new(folder_path: Option<PathBuf>, exec: Option<String>) -> Self {
+        let config = Arc::new(Config::new(folder_path, exec));
+        let command = Arc::new(Mutex::new(Exec::new(
+            config.exec.as_ref().unwrap().to_string(),
+        )));
         let walker = Arc::new(Mutex::new(Walker::new()));
         Self {
             config,

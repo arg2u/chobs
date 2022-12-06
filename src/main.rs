@@ -17,7 +17,7 @@ enum Mode {
     Watch {
         /// Sets a command to execute
         #[structopt(short = "e", long = "exec")]
-        exec: String,
+        exec: Option<String>,
 
         /// Sets a root folder to watch
         #[structopt(parse(from_os_str), short = "r", long = "root-foler")]
