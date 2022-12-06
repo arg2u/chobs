@@ -53,9 +53,9 @@ impl Watcher {
             let mut command = command_exec.lock().unwrap();
             let mut prev: Option<Child> = None;
             while let Ok(_) = recv.recv() {
-                // if prev.is_some() {
-                //     prev.unwrap().kill().unwrap();
-                // }
+                if prev.is_some() {
+                    prev.unwrap().kill().ok();
+                }
                 if command_config.verbose.unwrap() {
                     log_info!("Executing command: {}", command.exec_string);
                 }
