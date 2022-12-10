@@ -1,4 +1,4 @@
-# [![Latest Version](https://img.shields.io/crates/v/chobs.svg)](https://crates.io/crates/subrut) | [Documentation](https://docs.rs/chobs)
+# [![Latest Version](https://img.shields.io/crates/v/chobs.svg)](https://crates.io/crates/chobs) | [Documentation](https://docs.rs/chobs)
 
 **Chobs (Changes Observer)** is a tool that automatically restarting your process when file changes in the selected directory. It may be you system process or your project execution. For example if you don't want to call `cargo run` on every code changes, you can use Chobs. From arg2u with ♥
 
